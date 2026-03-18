@@ -2,10 +2,18 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
         String str = "madam";
+        char[] arr = str.toCharArray();
 
-        String rev = new StringBuilder(str).reverse().toString();
+        boolean isPalindrome = true;
 
-        if(str.equals(rev))
+        for(int i = 0; i < arr.length / 2; i++) {
+            if(arr[i] != arr[arr.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome)
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
