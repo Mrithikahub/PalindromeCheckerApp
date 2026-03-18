@@ -1,26 +1,19 @@
-import java.util.*;
-
 public class PalindromeCheckerApp {
+
+    static boolean isPalindrome(String str, int left, int right) {
+        if(left >= right) return true;
+
+        if(str.charAt(left) != str.charAt(right))
+            return false;
+
+        return isPalindrome(str, left + 1, right - 1);
+    }
+
     public static void main(String[] args) {
 
         String str = "madam";
 
-        LinkedList<Character> list = new LinkedList<>();
-
-        for(char c : str.toCharArray()) {
-            list.add(c);
-        }
-
-        boolean isPalindrome = true;
-
-        while(list.size() > 1) {
-            if(!list.removeFirst().equals(list.removeLast())) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if(isPalindrome)
+        if(isPalindrome(str, 0, str.length() - 1))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
